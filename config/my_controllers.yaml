@@ -20,8 +20,10 @@ diff_cont:
     right_wheel_names: ['right_wheel_joint']
     wheel_separation: 0.297
     wheel_radius: 0.033
+    cmd_vel_topic: /cmd_vel_out
 
-    # use_stamped_vel: false
+
+    use_stamped_vel: true
 
     # open_loop: false    
 

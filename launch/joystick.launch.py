@@ -9,7 +9,7 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
-    joy_params = os.path.join(get_package_share_directory('articubot_one'),'config','joystick.yaml')
+    joy_params = os.path.join(get_package_share_directory('eds_bot'),'config','joystick.yaml')
 
     joy_node = Node(
             package='joy',
@@ -26,12 +26,15 @@ def generate_launch_description():
          )
 
     twist_stamper = Node(
-            package='twist_stamper',
-            executable='twist_stamper',
-            parameters=[{'use_sim_time': use_sim_time}],
-            remappings=[('/cmd_vel_in','/diff_cont/cmd_vel_unstamped'),
-                        ('/cmd_vel_out','/diff_cont/cmd_vel')]
-         )
+        package='twist_stamper',
+        executable='twist_stamper',
+        parameters=[{'use_sim_time': use_sim_time}],
+        remappings=[
+            ('/cmd_vel_in', '/cmd_vel_joy'),
+            ('/cmd_vel_out', '/diff_cont/cmd_vel')
+        ]
+    )
+
 
 
     return LaunchDescription([

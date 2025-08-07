@@ -10,6 +10,8 @@ from launch.substitutions import LaunchConfiguration
 
 from launch_ros.actions import Node
 
+from launch.actions import RegisterEventHandler
+from launch.event_handlers import OnProcessExit
 
 
 def generate_launch_description():
@@ -105,17 +107,16 @@ def generate_launch_description():
     # Code for delaying a node (I haven't tested how effective it is)
     # 
     # First add the below lines to imports
-    # from launch.actions import RegisterEventHandler
-    # from launch.event_handlers import OnProcessExit
+ 
     #
     # Then add the following below the current diff_drive_spawner
-    # delayed_diff_drive_spawner = RegisterEventHandler(
-    #     event_handler=OnProcessExit(
-    #         target_action=spawn_entity,
-    #         on_exit=[diff_drive_spawner],
-    #     )
-    # )
-    #
+    delayed_diff_drive_spawner = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=spawn_entity,
+            on_exit=[diff_drive_spawner],
+        )
+    )
+    
     # Replace the diff_drive_spawner in the final return with delayed_diff_drive_spawner
 
 
@@ -128,7 +129,7 @@ def generate_launch_description():
         world_arg,
         gazebo,
         spawn_entity,
-        diff_drive_spawner,
+        delayed_diff_drive_spawner,
         joint_broad_spawner,
         ros_gz_bridge,
         ros_gz_image_bridge

@@ -58,8 +58,8 @@
 
     <gazebo>
         <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
-            <parameters>$(find articubot_one)/config/my_controllers.yaml</parameters>
-            <parameters>$(find articubot_one)/config/gaz_ros2_ctl_use_sim.yaml</parameters>
+            <parameters>$(find eds_bot)/config/my_controllers.yaml</parameters>
+            <parameters>$(find eds_bot)/config/gaz_ros2_ctl_use_sim.yaml</parameters>
         </plugin>
     </gazebo>
 
