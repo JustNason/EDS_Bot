@@ -86,9 +86,16 @@ def generate_launch_description():
     )
 
     lidar = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(package_name),'launch','ld19lidar.launch.py'
-                )])
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory(package_name),'launch','ld19lidar.launch.py'
+        )])
+    )
+
+    delayed_lidar = RegisterEventHandler(
+        event_handler=OnProcessStart(
+            target_action=diff_drive_spawner,  # wait for diff_drive_spawner to start
+            on_start=[lidar]
+        )
     )
 
     # Launch them all!
@@ -98,5 +105,5 @@ def generate_launch_description():
         delayed_controller_manager,
         delayed_diff_drive_spawner,
         delayed_joint_broad_spawner,
-        lidar
+        delayed_lidar
     ])
