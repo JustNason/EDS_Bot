@@ -13,7 +13,16 @@ Installation
 ============
 ### Setting Up the Development Mechine
 
-Find a pc and install Ubuntu 24.04.
+Before starting, ensure you have these things:
+1. A PC running Ubuntu 24.04 LTS (You can dual boot with Windows or you can use a VM. Please not that from my experience VM seem to have issues especially on Apple silicon Macs.)
+2. ROS2 Jazzy installed and working (Install it for [Ubuntu (deb packages)](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html))
+3. Install Gazebo and the following dependencies:
+Gazebo + ROS2 Bridge:
+```
+sudo apt update && sudo apt upgrade
+sudo apt install ros-jazzy-ros-gz
+sudo apt install ros-gz-ros2-control
+```
 
 ```
 mkdir -p dev_ws/src
