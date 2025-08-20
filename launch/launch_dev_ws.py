@@ -21,6 +21,8 @@ def generate_launch_description():
     # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
 
     package_name='eds_bot' #<--- CHANGE ME
+    use_slam=true
+    slam_mode=0
 
     joystick = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -32,11 +34,21 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        arguments=['-d', os.path.join(
+        if(use_slam)
+        {
+            arguments=['-d', os.path.join(
+            get_package_share_directory(package_name), 'config', 'map.rviz'
+        )],
+        }
+        else
+        {
+            arguments=['-d', os.path.join(
             get_package_share_directory(package_name), 'config', 'main.rviz'
         )],
+        }
         output='screen'
     )
+
 
     slam_params_file = os.path.join(
         get_package_share_directory(package_name),
@@ -51,31 +63,17 @@ def generate_launch_description():
         launch_arguments={
             'slam_params_file': slam_params_file,
             'use_sim_time': 'false'
+            ''
         }.items()
     )
 
 
-    # Code for delaying a node (I haven't tested how effective it is)
-    # 
-    # First add the below lines to imports
-    # from launch.actions import RegisterEventHandler
-    # from launch.event_handlers import OnProcessExit
-    #
-    # Then add the following below the current diff_drive_spawner
-    # delayed_diff_drive_spawner = RegisterEventHandler(
-    #     event_handler=OnProcessExit(
-    #         target_action=spawn_entity,
-    #         on_exit=[diff_drive_spawner],
-    #     )
-    # )
-    #
-    # Replace the diff_drive_spawner in the final return with delayed_diff_drive_spawner
-
-
-
-    # Launch them all!
     return LaunchDescription([
         joystick,
         rviz2,
-        slam
+        if(use_slam)
+        {
+            slam
+        }
+
     ])
