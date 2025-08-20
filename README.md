@@ -14,7 +14,7 @@ Installation
 ### Setting Up the Development Mechine
 
 Before starting, ensure you have these things:
-1. A PC running Ubuntu 24.04 LTS (You can dual boot with Windows or you can use a VM. Please not that from my experience VM seem to have issues especially on Apple silicon Macs.)
+1. A PC running Ubuntu 24.04 LTS (You can dual boot with Windows or you can use a VM. Please note that from my experience VMs seem to have issues especially on Apple silicon Macs.)
 2. ROS2 Jazzy installed and working (Install it for [Ubuntu (deb packages)](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html))
 3. Install Gazebo and the following dependencies:
 
@@ -40,4 +40,11 @@ mkdir -p dev_ws/src
 cd dev_ws/src
 
 git clone https://github.com/JustNason/EDS_Bot.git
+```
+Now we build our workspace from source using colcon (If you don't have colcon installed, you can install it with `sudo apt install colcon`)
+```
+cd ~/dev_ws
+
+source install/setup.bash
+colcon build --symlink-install
 ```
