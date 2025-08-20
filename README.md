@@ -15,7 +15,9 @@ Installation
 
 Find a pc and install Ubuntu 24.04.
 
-```mkdir dev_ws
-cd dev_ws
-mkdir src
-cd src
+```
+mkdir -p dev_ws/src
+cd dev_ws/src
+
+git clone https://github.com/JustNason/EDS_Bot.git
+```
