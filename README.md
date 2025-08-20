@@ -12,6 +12,8 @@ You can find his amazing ROS2 tutorials here:
 
 Installation
 ============
+### Creating Your Github Repository
+![Image](images/usetemplate.png)
 ### Setting Up the Development Machine
 
 Before starting, ensure you have these things:
