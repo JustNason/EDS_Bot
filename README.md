@@ -11,7 +11,7 @@ You can find his amazing ROS2 tutorials here:
 
 Installation
 ============
-### Setting Up the Development Mechine
+### Setting Up the Development Machine
 
 Before starting, ensure you have these things:
 1. A PC running Ubuntu 24.04 LTS (You can dual boot with Windows or you can use a VM. Please note that from my experience VMs seem to have issues especially on Apple silicon Macs.)
@@ -47,4 +47,9 @@ cd ~/dev_ws
 
 source install/setup.bash
 colcon build --symlink-install
+```
+And there you have it, everything should be up and running! Too double check you can run the launcher file (ensure to `source install/setup.bash` everytime you start your development machine).
+```
+ros2 launch eds_bot launch_dev_ws.py
+#if you set a custom package neame change "eds_bot" to the name you set it too.
 ```
