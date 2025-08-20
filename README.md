@@ -2,7 +2,8 @@
 
 This is a GitHub repo containing the source code of my atonomous robotics project "EDS_Bot"
 
-You can copy this repo and replace all instances of `eds_bot` within the launcher files with the name of your robot. Alse ensure that while following this README.md you replace eds_bot to the name of your robot when referencing the package. 
+### IMPORTANT
+You can copy this repo and replace all instances of `eds_bot` within the launcher files, CMakeList.txt, and package.xml with the name of your robot. Alse ensure that while following this README.md you replace eds_bot to the name of your robot when referencing the package. 
 **EX:** `ros2 launch eds_bot launch_robot.launch.py`, replace `eds_bot` with the name of your robot.
 
 This repository was created from _Josh Newans'_ [articubot_one](https://github.com/joshnewans/articubot_one), a very special thanks to him.
@@ -51,5 +52,9 @@ colcon build --symlink-install
 And there you have it, everything should be up and running! Too double check you can run the launcher file (ensure to `source install/setup.bash` everytime you start your development machine).
 ```
 ros2 launch eds_bot launch_dev_ws.py
-#if you set a custom package neame change "eds_bot" to the name you set it too.
+#if you set a custom package name change "eds_bot" to it.
 ```
+### Setting Up Your Robot
+
+Simulation With Gazebo
+======================
