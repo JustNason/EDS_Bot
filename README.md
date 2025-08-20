@@ -11,8 +11,11 @@ You can find his amazing ROS2 tutorials here:
 
 Installation
 ============
+### Setting Up the Development Mechine
+
+Find a pc and install Ubuntu 24.04.
 
 ```mkdir dev_ws
 cd dev_ws
 mkdir src
-cd src```
+cd src
