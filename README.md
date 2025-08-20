@@ -34,6 +34,7 @@ sudo apt install ros-jazzy-ros2-controllers
 ```
 
 Great! Now we can begin setting up our development workspace.
+First, we create our `dev_ws` and `src` folders. Then, we clone our code into the `src` folder.
 ```
 mkdir -p dev_ws/src
 cd dev_ws/src
