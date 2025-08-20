@@ -17,13 +17,23 @@ Before starting, ensure you have these things:
 1. A PC running Ubuntu 24.04 LTS (You can dual boot with Windows or you can use a VM. Please not that from my experience VM seem to have issues especially on Apple silicon Macs.)
 2. ROS2 Jazzy installed and working (Install it for [Ubuntu (deb packages)](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html))
 3. Install Gazebo and the following dependencies:
-Gazebo + ROS2 Bridge:
+
+_Gazebo + ROS2 Bridge:_
 ```
 sudo apt update && sudo apt upgrade
 sudo apt install ros-jazzy-ros-gz
 sudo apt install ros-gz-ros2-control
 ```
 
+_ROS2 Dependencies:_
+```
+sudo apt install ros-jazzy-twist-mux
+sudo apt install ros-jazzy-twist-stamper
+sudo apt install ros-jazzy-ros2-control
+sudo apt install ros-jazzy-ros2-controllers
+```
+
+Great! Now we can begin setting up our development workspace.
 ```
 mkdir -p dev_ws/src
 cd dev_ws/src
