@@ -21,7 +21,7 @@ def generate_launch_description():
     # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
 
     package_name='eds_bot' #<--- CHANGE ME
-    use_slam=true
+    use_slam=True
     slam_mode=0
 
     joystick = IncludeLaunchDescription(
@@ -34,7 +34,7 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        if(use_slam)
+        if use_slam
         {
             arguments=['-d', os.path.join(
             get_package_share_directory(package_name), 'config', 'map.rviz'
@@ -71,7 +71,7 @@ def generate_launch_description():
     return LaunchDescription([
         joystick,
         rviz2,
-        if(use_slam)
+        if use_slam
         {
             slam
         }
