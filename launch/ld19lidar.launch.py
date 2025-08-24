@@ -33,7 +33,7 @@ def generate_launch_description():
         {'laser_scan_topic_name': '/scan'},
         {'point_cloud_2d_topic_name': 'pointcloud2d'},
         {'frame_id': 'laser_frame'},
-        {'port_name': '/dev/ttyUSB0'},
+        {'port_name': '/dev/ttyUSB2'},
         {'serial_baudrate': 230400},
         {'laser_scan_dir': False},
         {'enable_angle_crop_func': False},
