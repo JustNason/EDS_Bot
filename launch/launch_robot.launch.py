@@ -30,7 +30,7 @@ def generate_launch_description():
     )
 
     # --- robot_description directly from URDF ---
-    urdf_file = os.path.join(get_package_share_directory(package_name), 'urdf', 'robot.urdf')
+    urdf_file = os.path.join(get_package_share_directory(package_name), 'description', 'robot.urdf.xacro')
     with open(urdf_file, 'r') as infp:
         robot_description = {'robot_description': infp.read()}
 
