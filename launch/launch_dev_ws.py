@@ -62,5 +62,5 @@ def generate_launch_description():
     return LaunchDescription([
         joystick,
         rviz2,
-        # slam
+        slam
     ])
