@@ -35,7 +35,7 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
             arguments=['-d', os.path.join(
-            get_package_share_directory(package_name), 'config', 'map.rviz'
+            get_package_share_directory(package_name), "config", "map.rviz"
         )],
         output='screen'
     )
@@ -62,5 +62,5 @@ def generate_launch_description():
     return LaunchDescription([
         joystick,
         rviz2,
-        slam
+        # slam
     ])

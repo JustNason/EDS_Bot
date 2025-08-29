@@ -18,12 +18,12 @@ diff_cont:
 
     left_wheel_names: ['left_wheel_joint']
     right_wheel_names: ['right_wheel_joint']
-    wheel_separation: 0.297
-    wheel_radius: 0.033
+    wheel_separation: 0.3
+    wheel_radius: 0.125
     cmd_vel_topic: /cmd_vel_out
 
 
-    use_stamped_vel: true
+    use_stamped_vel: false
 
     # open_loop: false    
 
@@ -32,11 +32,11 @@ diff_cont:
     # left_wheel_radius_multiplier: x
     # right_wheel_radius_multiplier: x
 
-    # odom_frame_id: x
+    # odom_frame_id: odom
     # pose_covariance_diagonal: x
     # twist_covariance_diagonal: x
     # open_loop: x
-    # enable_odom_tf: x
+    # enable_odom_tf: true
 
     # cmd_vel_timeout: x
     # publish_limited_velocity: x

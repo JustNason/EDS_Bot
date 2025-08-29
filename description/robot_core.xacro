@@ -72,7 +72,7 @@
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
             </geometry>
             <material name="white"/>
-        </visual>
+        </visual> 
         <collision>
             <origin xyz="${chassis_length/2} 0 ${chassis_height/2}"/>
             <geometry>
