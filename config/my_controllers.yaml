@@ -23,7 +23,7 @@ diff_cont:
     cmd_vel_topic: /cmd_vel_out
 
 
-    use_stamped_vel: true
+    use_stamped_vel: false
 
     # open_loop: false    
 
