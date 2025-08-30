@@ -18,7 +18,7 @@ diff_cont:
 
     left_wheel_names: ['left_wheel_joint']
     right_wheel_names: ['right_wheel_joint']
-    wheel_separation: 0.3
+    wheel_separation: 0.450
     wheel_radius: 0.125
     cmd_vel_topic: /cmd_vel_out
 
