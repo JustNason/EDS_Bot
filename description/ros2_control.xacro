@@ -11,7 +11,7 @@
                 <param name="device">/dev/arduino</param>
                 <param name="baud_rate">57600</param>
                 <param name="timeout_ms">1000</param>
-                <param name="enc_counts_per_rev">5000</param>
+                <param name="enc_counts_per_rev">2786.2</param>
             </hardware>
             <joint name="left_wheel_joint">
                 <command_interface name="velocity">
