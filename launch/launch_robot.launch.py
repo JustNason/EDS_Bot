@@ -26,7 +26,7 @@ def generate_launch_description():
         package="twist_mux",
         executable="twist_mux",
         parameters=[twist_mux_params],
-        remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
+        remappings=[('/cmd_vel_out','/diff_cont/cmd_vel')]  # Changed to cmd_vel_unstamped
     )
 
     # --- robot_description directly from URDF ---
@@ -39,7 +39,7 @@ def generate_launch_description():
     controller_manager = Node(
         package="controller_manager",
         executable="ros2_control_node",
-        parameters=[robot_description, controller_params_file]
+        parameters=[robot_description, controller_params_file],
     )
     delayed_controller_manager = TimerAction(period=5.0, actions=[controller_manager])
 
@@ -47,7 +47,7 @@ def generate_launch_description():
     diff_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["diff_cont"],
+        arguments=["diff_cont", "--controller-manager", "/controller_manager"]
     )
     joint_broad_spawner = Node(
         package="controller_manager",
