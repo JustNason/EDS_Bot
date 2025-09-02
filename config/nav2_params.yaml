@@ -29,7 +29,7 @@ amcl:
     save_pose_rate: 0.5
     sigma_hit: 0.2
     tf_broadcast: true
-    transform_tolerance: 0.1
+    transform_tolerance: 1.0
     update_min_a: 0.2
     update_min_d: 0.25
     z_hit: 0.5
@@ -100,17 +100,17 @@ controller_server:
       time_steps: 56
       model_dt: 0.05
       batch_size: 2000
-      ax_max: 3.0
+      ax_max: 4.0
       ax_min: -3.0
       ay_max: 3.0
-      az_max: 3.5
+      az_max: 4.0
       vx_std: 0.2
       vy_std: 0.2
       wz_std: 0.4
-      vx_max: 0.5
+      vx_max: 2.0
       vx_min: -0.35
       vy_max: 0.5
-      wz_max: 1.9
+      wz_max: 2.5
       iteration_count: 1
       prune_distance: 1.7
       transform_tolerance: 0.1
@@ -195,7 +195,7 @@ local_costmap:
       rolling_window: true
       width: 3
       height: 3
-      resolution: 0.01
+      resolution: 0.05
       robot_radius: 0.22
       plugins: ["voxel_layer", "inflation_layer"]
       inflation_layer:
@@ -207,7 +207,7 @@ local_costmap:
         enabled: True
         publish_voxel_map: True
         origin_z: 0.0
-        z_resolution: 0.01
+        z_resolution: 0.05
         z_voxels: 16
         max_obstacle_height: 2.0
         mark_threshold: 0
@@ -235,7 +235,7 @@ global_costmap:
       global_frame: map
       robot_base_frame: base_link
       robot_radius: 0.22
-      resolution: 0.01
+      resolution: 0.05
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
       obstacle_layer:
@@ -288,7 +288,6 @@ planner_server:
 
 smoother_server:
   ros__parameters:
-    enable_stamped_cmd_vel: true
     smoother_plugins: ["simple_smoother"]
     simple_smoother:
       plugin: "nav2_smoother::SimpleSmoother"
@@ -322,6 +321,8 @@ behavior_server:
     max_rotational_vel: 1.0
     min_rotational_vel: 0.4
     rotational_acc_lim: 3.2
+    enable_stamped_cmd_vel: true
+
 
 waypoint_follower:
   ros__parameters:
@@ -339,14 +340,15 @@ velocity_smoother:
     smoothing_frequency: 20.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
-    max_velocity: [0.5, 0.0, 2.0]
+    max_velocity: [2.0, 0.0, 2.5]
     min_velocity: [-0.5, 0.0, -2.0]
-    max_accel: [2.5, 0.0, 3.2]
+    max_accel: [4.0, 0.0, 4.0]
     max_decel: [-2.5, 0.0, -3.2]
     odom_topic: "odom"
     odom_duration: 0.1
     deadband_velocity: [0.0, 0.0, 0.0]
     velocity_timeout: 1.0
+    enable_stamped_cmd_vel: true
 
 collision_monitor:
   ros__parameters:
@@ -437,7 +439,7 @@ loopback_simulator:
     base_frame_id: "base_footprint"
     odom_frame_id: "odom"
     map_frame_id: "map"
-    scan_frame_id: "laser_frame"  # tb4_loopback_simulator.launch.py remaps to 'rplidar_link'
+    scan_frame_id: "base_scan"  # tb4_loopback_simulator.launch.py remaps to 'rplidar_link'
     update_duration: 0.02
     scan_range_min: 0.05
     scan_range_max: 30.0

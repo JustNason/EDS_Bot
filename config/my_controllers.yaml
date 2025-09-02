@@ -18,6 +18,15 @@ diff_cont:
     wheel_separation: 0.450
     wheel_radius: 0.125
 
+    linear.x.has_velocity_limits: true
+    linear.x.max_velocity: 0.5   # m/s, adjust for your robot
+    linear.x.min_velocity: -0.5
+
+    angular.z.has_velocity_limits: true
+    angular.z.max_velocity: 1.5  # rad/s
+    angular.z.min_velocity: -1.5
+
+
     # open_loop: false    
 
     # wheels_per_side: x
