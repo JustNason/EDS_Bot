@@ -36,8 +36,8 @@
 # gz topic subscribed to by DiffDrive plugin
 - ros_topic_name: "diff_cont/cmd_vel"
   gz_topic_name: "cmd_vel"
-  ros_type_name: "geometry_msgs/msg/Twist"
-  gz_type_name: "gz.msgs.Twist"
+  ros_type_name: "geometry_msgs/msg/TwistStamped"
+  gz_type_name: "gz.msgs.TwistStamped"
   direction: ROS_TO_GZ
 
 # gz topic published by JointState plugin
