@@ -1,6 +1,8 @@
 ## EDS Robot
 
-This is a GitHub repo containing the source code of my atonomous robotics project "EDS_Bot"
+This is a GitHub repo containing the source code of my atonomous robotics project "EDS_Bot" 
+
+# WORK IN PROGRESS!!!
 
 ### IMPORTANT
 You can copy this repo and replace all instances of `eds_bot` within the launcher files, CMakeList.txt, and package.xml with the name of your robot. Alse ensure that while following this README.md you replace eds_bot to the name of your robot when referencing the package. 
