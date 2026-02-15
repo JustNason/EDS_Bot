@@ -19,11 +19,11 @@
 
     <joint name="camera_optical_joint" type="fixed">
         <parent link="camera_link"/>
-        <child link="camera_link_optical"/>
+        <child link="camera_color_optical_frame"/>
         <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
     </joint>
 
-    <link name="camera_link_optical"></link>
+    <link name="camera_color_optical_frame"></link>
 
 
 
@@ -47,7 +47,7 @@
                 </clip>
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-                <frame_name>camera_link_optical</frame_name>
+                <frame_name>camera_color_optical_frame</frame_name>
                 <min_depth>0.1</min_depth>
                 <max_depth>100.0</max_depth>
             </plugin>
